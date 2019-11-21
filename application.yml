@@ -15,4 +15,4 @@ spring:
 spring:
   profiles: test
   application:
-    name: microservicecloud-config-nianzuochen.test
+    name: microservicecloud-config-nianzuochen-test
