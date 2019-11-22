@@ -2,7 +2,6 @@ spring:
   profiles:
     active:
     - dev
-
 ---
 server:
   port: 8001
@@ -24,8 +23,23 @@ eureka:
     instance-id: microservicecloud-dept-8001
     prefer-ip-address: true
 
-info:
-  app-name: microservicecloud
-  company-name: www.nianzuochen.cn
-  build.artifactId: ${project.artifactId}
-  build.version: ${project.version}
+---
+server:
+  port: 8001
+
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB02?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    username: root
+    password: root
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: microservicecloud-dept-8001
+    prefer-ip-address: true
